@@ -56,9 +56,9 @@ namespace Kafka_Consumer.Consumers
             }
             catch (Exception e)
             {
-                var key = message is null ? message.Message.Key.ToString() : "No key";
-                var value = message is null ? message.Message.Value.ToString() : "No value";
-                _logger.LogError(e, $"Error process message with key {key}, value {value}");
+                var key = message?.Message?.Key?.ToString() ?? "No key";
+                var value = message?.Message?.Value?.ToString() ?? "No value";
+                _logger.LogError(e, $"Error processing message with key {key}, value {value}");
             }
         }
 
